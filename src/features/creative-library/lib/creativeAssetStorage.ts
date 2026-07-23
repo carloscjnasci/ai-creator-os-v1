@@ -1,0 +1,10 @@
+import { z } from 'zod';
+import { CREATIVE_ASSET_TYPES } from '../types';
+import { loadCollection, parseCollection, saveCollection } from '@/core/localStorageCollection';
+import type { CreativeAsset } from '../types';
+
+export const CREATIVE_ASSET_STORAGE_KEY = 'ai-creator-os.creative-assets.v1';
+export const creativeAssetSchema = z.object({ id: z.string().min(1), name: z.string().min(1), type: z.enum(CREATIVE_ASSET_TYPES), sourceUrl: z.string(), campaignId: z.string().optional(), digitalHumanId: z.string().optional(), productId: z.string().optional(), wardrobeItemId: z.string().optional(), sceneId: z.string().optional(), promptExperimentId: z.string().optional(), promptUsed: z.string(), model: z.string(), tags: z.array(z.string()), createdAt: z.string().datetime(), cloudAssetId: z.string().optional(), storageProvider: z.string().optional(), storageKey: z.string().optional(), thumbnailUrl: z.string().optional(), previewUrl: z.string().optional(), byteSize: z.number().optional(), mimeType: z.string().optional(), checksum: z.string().optional(), processingStatus: z.string().optional(), analyticsSnapshotIds: z.array(z.string()).optional(), observedPerformanceScore: z.number().optional(), engagementScore: z.number().optional(), retentionScore: z.number().optional(), conversionScore: z.number().optional(), outlierStatus: z.enum(['positive', 'negative', 'none']).optional(), lastMetricsCapturedAt: z.string().optional(), experimentIds: z.array(z.string()).optional(), experimentVariantIds: z.array(z.string()).optional(), experimentResult: z.enum(['winner', 'loser', 'control', 'treatment', 'inconclusive']).optional(), experimentLift: z.number().optional(), experimentConfidence: z.number().optional(), isExperimentWinner: z.boolean().optional(), lastExperimentEvaluatedAt: z.string().optional() });
+export const parseStoredCreativeAssets = (value: string | null) => parseCollection(value, creativeAssetSchema);
+export const loadCreativeAssets = () => loadCollection(CREATIVE_ASSET_STORAGE_KEY, creativeAssetSchema);
+export const saveCreativeAssets = (items: CreativeAsset[]) => saveCollection(CREATIVE_ASSET_STORAGE_KEY, items);

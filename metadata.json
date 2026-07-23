@@ -1,0 +1,10 @@
+{
+    "name":  "AI Creator OS — Sprint 14C Localization — final — official",
+    "description":  "Official Sprint 14C baseline with complete internationalization and localization across the AI Creator OS, pt-BR as the default locale, English and Spanish support, persistent locale settings, unified date and number formatting, strict AST localization safeguards, and Workspace Backup v10 compatibility.",
+    "requestFramePermissions":  [
+
+                                ],
+    "majorCapabilities":  [
+                              "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+                          ]
+}

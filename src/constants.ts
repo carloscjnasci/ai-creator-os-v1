@@ -1,0 +1,26 @@
+export const APP_NAME = 'AI Creator OS';
+
+export const SIDEBAR_NAV_ITEMS = [
+  { label: 'AI Director', path: '/ai-director' },
+  { label: 'Dashboard', path: '/dashboard' },
+  { label: 'Research Hub', path: '/research' },
+  { label: 'Viral Analyzer', path: '/viral-analyzer' },
+  { label: 'Campaign Builder', path: '/campaign-builder' },
+  { label: 'Production Center', path: '/execution-center' },
+  { label: 'Provider Gateway', path: '/provider-gateway' },
+  { label: 'Publishing Hub', path: '/publishing-hub' },
+  { label: 'Campaigns', path: '/campaigns' },
+  { label: 'Digital Humans', path: '/digital-humans' },
+  { label: 'Character Library', path: '/characters' },
+  { label: 'Products', path: '/products' },
+  { label: 'Wardrobe', path: '/wardrobe' },
+  { label: 'Scenes', path: '/scenes' },
+  { label: 'Poses', path: '/poses' },
+  { label: 'Prompt Intelligence', path: '/prompt-intelligence' },
+  { label: 'Prompt Engine', path: '/prompt-engine' },
+  { label: 'Asset Library', path: '/creative-library' },
+  { label: 'Experimentation', path: '/experimentation' },
+  { label: 'Creative Recipes', path: '/creative-recipes' },
+  { label: 'Analytics', path: '/analytics' },
+  { label: 'Settings', path: '/settings' },
+];
