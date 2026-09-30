@@ -1,0 +1,47 @@
+{
+  "previewPort": 3000,
+  "healthPath": "/",
+  "startCommand": "docker compose -f docker-compose.base44.yml up -d",
+  "secrets": [
+    {
+      "name": "VITE_AI_GATEWAY_URL",
+      "description": "Optional: URL of the AI provider gateway used by the prompt engine. App runs without it.",
+      "requiredAtBoot": false
+    },
+    {
+      "name": "VITE_FIREBASE_API_KEY",
+      "description": "Optional: Firebase API key. App uses localStorage when Firebase is not configured.",
+      "requiredAtBoot": false
+    },
+    {
+      "name": "VITE_FIREBASE_AUTH_DOMAIN",
+      "description": "Optional: Firebase auth domain.",
+      "requiredAtBoot": false
+    },
+    {
+      "name": "VITE_FIREBASE_PROJECT_ID",
+      "description": "Optional: Firebase project ID.",
+      "requiredAtBoot": false
+    },
+    {
+      "name": "VITE_FIREBASE_STORAGE_BUCKET",
+      "description": "Optional: Firebase storage bucket.",
+      "requiredAtBoot": false
+    },
+    {
+      "name": "VITE_FIREBASE_MESSAGING_SENDER_ID",
+      "description": "Optional: Firebase messaging sender ID.",
+      "requiredAtBoot": false
+    },
+    {
+      "name": "VITE_FIREBASE_APP_ID",
+      "description": "Optional: Firebase app ID.",
+      "requiredAtBoot": false
+    },
+    {
+      "name": "VITE_FIREBASE_MEASUREMENT_ID",
+      "description": "Optional: Firebase measurement ID.",
+      "requiredAtBoot": false
+    }
+  ]
+}
