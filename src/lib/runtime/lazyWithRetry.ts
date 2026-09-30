@@ -1,7 +1,6 @@
 import {
   createElement,
   lazy,
-  useMemo,
   type ComponentType,
   type ReactElement,
 } from 'react';
@@ -49,15 +48,15 @@ export function lazyWithRetry<
 >(
   importer: () => Promise<LazyRouteModule<T>>,
 ): ComponentType<Record<string, never>> {
-  function RetriableLazyRoute(): ReactElement {
-    const LazyRoute = useMemo(
-      () =>
-        lazy(
-          () => importRouteWithRetry(importer),
-        ),
-      [importer],
-    );
+  // Create the lazy component exactly once per importer, at module scope.
+  // Creating it inside the component render (e.g. via useMemo) can orphan the
+  // resolved payload whenever React discards the suspended fiber, leaving the
+  // Suspense fallback visible forever even after the module has loaded.
+  const LazyRoute = lazy(
+    () => importRouteWithRetry(importer),
+  );
 
+  function RetriableLazyRoute(): ReactElement {
     return createElement(LazyRoute);
   }
 
